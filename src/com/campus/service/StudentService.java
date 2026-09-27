@@ -86,16 +86,17 @@ public class StudentService{
     }
     //display report card
     public void displayReportCard(Student student){
-        system.out.println("Student ID: " + student.getStudentid());
-        system.out.println("Student Name: " + student.getStudentname());
-        system.out.println("Department: " + student.getDepartment());
-        system.out.println("Total Marks: " + calculateTotal(student));
-        system.out.println("Average Marks: " + calculateAverage(student));
-        system.out.println("Maximum Mark: " + findMaximum(student));
-        system.out.println("Minimum Mark: " + findMinimum(student));
-        system.out.println("Grade: " + grade(student));
-        system.out.println("Result: " + passorfail(student));
+        System.out.println("Student ID: " + student.getStudentid());
+        System.out.println("Student Name: " + student.getStudentname());
+        System.out.println("Department: " + student.getDepartment());
+        System.out.println("Total Marks: " + calculateTotal(student));
+        System.out.println("Average Marks: " + calculateAverage(student));
+        System.out.println("Maximum Mark: " + findMaximum(student));
+        System.out.println("Minimum Mark: " + findMinimum(student));
+        System.out.println("Grade: " + grade(student));
+        System.out.println("Result: " + passorfail(student));
         
+
     }    
 
 
