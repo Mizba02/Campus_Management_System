@@ -1,5 +1,7 @@
 package com.campus.controller;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,20 +16,10 @@ public class StudentServlet extends HttpServlet{
     private final StudentService studentService = new StudentService();
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<head><title>Student List</title></head>");
-        out.println("<body>");
-        out.println("<h1> All Students List</h1>");
-        out.println("<ul>");
-        for (String student : studentService.getStudents()) {
-            out.println("<li>" + student + "</li>");
-        }
-        out.println("</ul>");
-        out.print("<a href=\"addStudent.html\">Add Student</a>");
-        out.println("</body>");
-        out.println("</html>");
+       var students = studentService.getStudent();
+       request.setAttribute("students", students);
+       RequestDispatcher dispatcher = request.getRequestDispatcher("/student.jsp");
+       dispatcher.forward(request, response);
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
